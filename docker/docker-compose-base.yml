@@ -86,7 +86,6 @@ services:
     restart: always
 
 
-
 volumes:
   esdata01:
     driver: local
@@ -100,3 +99,4 @@ volumes:
 networks:
   ragflow:
     external: true
+    name: ragflow
