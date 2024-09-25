@@ -26,7 +26,8 @@ services:
       timeout: 10s
       retries: 120
     networks:
-      - ragflow
+      - ragflow:
+          ipv4_address: 172.20.0.2
     restart: always
 
   mysql:
@@ -48,7 +49,8 @@ services:
       - mysql_data:/var/lib/mysql
       - ./init.sql:/data/application/init.sql
     networks:
-      - ragflow
+      - ragflow:
+          ipv4_address: 172.20.0.3
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-uroot", "-p${MYSQL_PASSWORD}"]
       interval: 10s
@@ -70,7 +72,8 @@ services:
     volumes:
       - minio_data:/data
     networks:
-      - ragflow
+      - ragflow:
+        ipv4_address: 172.20.0.4
     restart: always
 
   redis:
@@ -82,7 +85,8 @@ services:
     volumes:
       - redis_data:/data
     networks:
-      - ragflow
+      - ragflow:
+        ipv4_address: 172.20.0.5
     restart: always
 
 
