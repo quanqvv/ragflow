@@ -26,6 +26,5 @@ services:
       - HF_ENDPOINT=https://huggingface.co
       - MACOS=${MACOS}
     networks:
-      ragflow:
-        ipv4_address: 172.20.0.6
+      - ragflow
     restart: always
